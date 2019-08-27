@@ -10,15 +10,18 @@ import cl.duoc.restspring.models.TallerRepository;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin (origins="*", methods={RequestMethod.GET,RequestMethod.POST, RequestMethod.DELETE,RequestMethod.PUT})
 public class RESTTallerController {
     
     @Autowired
@@ -42,7 +45,7 @@ public class RESTTallerController {
     @PutMapping("/talleres/{id}")
     public TallerEntity putTaller(@RequestBody Map<String,String> dato, @PathVariable Integer id){
         TallerEntity obj= new TallerEntity();
-        //obj.setIdcliente(Integer.parseInt(dato.get("idcliente")));
+        obj.setNumtaller(id);
         obj.setNombre(dato.get("nombre"));
         obj.setDetalle(dato.get("detalle"));
         obj.setNumhoras(Integer.parseInt(dato.get("numhoras")));

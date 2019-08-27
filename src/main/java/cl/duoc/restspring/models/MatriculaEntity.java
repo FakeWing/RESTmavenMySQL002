@@ -5,18 +5,38 @@
  */
 package cl.duoc.restspring.models;
 
-/**
- *
- * @author hells
- */
-public class Matricula {
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "matricula")
+public class MatriculaEntity implements Serializable {
+
+    @Id
     private int nummat;
+
+    @Column(name = "rut")
     private String rut;
+
+    @Column(name = "dv")
     private String dv;
+
+    @Column(name = "paterno")
     private String paterno;
+
+    @Column(name = "materno")
     private String materno;
+
+    @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "numtaller")
     private int numtaller;
 
     public int getNummat() {
@@ -83,10 +103,10 @@ public class Matricula {
         this.numtaller = numtaller;
     }
 
-    public Matricula() {
+    public MatriculaEntity() {
     }
 
-    public Matricula(int nummat, String rut, String dv, String paterno, String materno, String nombre, String email, int numtaller) {
+    public MatriculaEntity(int nummat, String rut, String dv, String paterno, String materno, String nombre, String email, int numtaller) {
         this.nummat = nummat;
         this.rut = rut;
         this.dv = dv;
@@ -96,8 +116,4 @@ public class Matricula {
         this.email = email;
         this.numtaller = numtaller;
     }
-    
-    
-       
-    
 }
