@@ -5,9 +5,15 @@
  */
 package cl.duoc.restspring.controllers;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RESTMatriculaController {
+    
+    @GetMapping("/matriculas")
+    public String listar(){
+        return "Matriculas";
+    }
     
 }
